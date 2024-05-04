@@ -9,8 +9,6 @@ package Parcial2;
 import java.util.List;
 import java.util.Scanner;
 
-import com.example.author;
-
 public class MenuGaraje {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
