@@ -1,15 +1,10 @@
-
-////////////////////////////////////////
-//////@AUTHOR: DIEGO GARRIDO CALDERON//
-///@CODIGO: 20232217117///////////////
-//////////////////////////////////////
-
 package Parcial2;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class MenuGaraje {
+public class MenuGaraje2 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Garaje garaje = new Garaje();
@@ -55,23 +50,36 @@ public class MenuGaraje {
                         boolean tieneSidecar = scanner.nextBoolean();
                         vehiculo = new Moto(marca, precio, cilindraje, tieneSidecar);
                     }
-                    vehiculo.setPlaca(placa);
+                    if (vehiculo != null) {
+                        vehiculo.setPlaca(placa);
 
-                    if (garaje.agregarVehiculo(vehiculo)) {
-                        System.out.println("Vehículo añadido exitosamente.");
+                        if (garaje.agregarVehiculo(vehiculo)) {
+                            System.out.println("Vehículo añadido exitosamente.");
+                        } else {
+                            System.out.println(
+                                    "No se pudo añadir el vehículo. Verifique la información y las restricciones del garaje.");
+                        }
                     } else {
-                        System.out.println("No se pudo añadir el vehículo. Verifique la información y las restricciones del garaje.");
+                        System.out.println("Tipo de vehículo no válido.");
                     }
                     break;
                 case 2:
                     System.out.println("Ingrese la placa del vehículo a retirar:");
                     String placaRetiro = scanner.nextLine();
-                    if (garaje.retirarVehiculo(placaRetiro)) {
-                        System.out.println("Vehículo retirado exitosamente.");
-                    } else {
-                        System.out.println("No se encontró un vehículo con esa placa.");
+                    for (Vehiculo v : garaje.obtenerEspacios()) {
+                        if (v != null && v.getPlaca().equals(placaRetiro)) {
+                            System.out.println("Atributos del vehículo a retirar:");
+                            System.out.println(v.toString());
+                            if (garaje.retirarVehiculo(placaRetiro)) {
+                                System.out.println("Vehículo retirado exitosamente.");
+                            } else {
+                                System.out.println("No se encontró un vehículo con esa placa.");
+                            }
+                            break;
+                        }
                     }
                     break;
+
                 case 3:
                     System.out.println("Ingresos mensuales: " + garaje.calcularIngresos());
                     break;

@@ -77,4 +77,8 @@ public class Garaje implements iGaraje {
         }
         return listado;
     }
+
+    public Vehiculo[] obtenerEspacios() {
+        return espacios;
+    }
 }
