@@ -3,11 +3,11 @@ package com.example;
 import java.util.Scanner;
 
 public class Ejercicio1 {
-   public static void main(String[] args) {
+    public static void main(String[] args) {
 
         @SuppressWarnings("resource")
-        Scanner scanner = new Scanner (System.in);
-        
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Digite el numero de computadoras a comprar:");
         int numeroPcs = scanner.nextInt();
 
@@ -16,9 +16,9 @@ public class Ejercicio1 {
         double totalSinDesc = numeroPcs * precioPc;
         double totalConDesc;
 
-        if (numeroPcs < 5){
+        if (numeroPcs < 5) {
             descuento = totalSinDesc * 0.10;
-        } else if (numeroPcs <= 10){
+        } else if (numeroPcs <= 10) {
             descuento = totalSinDesc * 0.20;
         } else {
             descuento = totalSinDesc * 0.40;
